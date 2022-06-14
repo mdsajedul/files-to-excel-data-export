@@ -16,7 +16,7 @@ worksheet.columns = [
 
 
 const exportData = ()=>{
-    for(let i = 1; i<= 5; i++){
+    for(let i = 1; i<= 400; i++){
         try{
              fs.readFile(`./2015/2015 (${i}).txt`,'utf-8',(err,data)=>{
                 if(err){
@@ -24,7 +24,6 @@ const exportData = ()=>{
                 }
                 else{
         
-                    // console.log(data)
                     const lines = data.split(/\r?\n/);
     
                         const  lineData = {
@@ -39,7 +38,7 @@ const exportData = ()=>{
                    
     
                     workbook.xlsx.writeFile('2015 2801-3200.xlsx').then(data=>{
-                        console.log(` Done file: ${i}`)
+                        console.log(`File exported: ${i}`)
                     })
                 }
             })
@@ -56,8 +55,3 @@ const exportData = ()=>{
 
 exportData()
 
-
-// const v8 = require('v8');
-// const totalHeapSize = v8.getHeapStatistics().total_available_size;
-// const totalHeapSizeGb = (totalHeapSize / 1024 / 1024 / 1024).toFixed(2);
-// console.log('totalHeapSizeGb: ', totalHeapSizeGb);
